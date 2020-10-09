@@ -1,10 +1,13 @@
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
+const Constraint = Matter.Constraint;
 
 var engine, world;
 var box1, pig1;
 var backgroundImg,platform;
+var angryBaton;
+var chi;
 
 function preload() {
     backgroundImg = loadImage("sprites/bg.png");
@@ -36,6 +39,10 @@ function setup(){
 
     bird = new Bird(100,100);
 
+    angryBaton = new Log(230,180,80,PI/2);
+
+    chi = new Chain(bird.body,angryBaton.body);
+
 }
 
 function draw(){
@@ -61,4 +68,8 @@ function draw(){
 
     bird.display();
     platform.display();
+
+    angryBaton.display();
+    chi.display();
+
 }
